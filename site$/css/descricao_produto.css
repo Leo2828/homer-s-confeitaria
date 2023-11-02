@@ -1,0 +1,29 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+#sla{
+    justify-content: center; /*basico para alinhar conteúdo dentro da div*/
+    display: flex; /*basico para alinhar conteúdo dentro da div*/
+    flex-wrap: wrap;
+    margin-right: 10px; /*distancia de um conteúdo a outro*/
+    margin-left: 10px; /*lembrar que é necessario também uma distancia do conteúdo a borda da div*/
+    gap: 10px;
+}
+
+.produto{
+    border: 1.5px solid #000000;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; /*basico para alinhar conteúdo dentro da div*/
+    display: flex; /*basico para alinhar conteúdo dentro da div*/
+    flex-direction: column; /*basico para alinhar conteúdo dentro da div*/   
+}
+
+.imgprod{
+    height: 200px;
+    width: 200px;
+}
+

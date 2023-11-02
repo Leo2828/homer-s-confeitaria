@@ -1,0 +1,65 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.footer{
+    margin-top: 150px;
+    width: 100%;
+    padding: 10px;
+    background: #ff7dd8;
+    color: #efefef;
+    display: flex;
+}
+
+.footer div{
+    text-align: center;
+}
+
+.footer div h3{
+    font-size: 20px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+
+.rede_social{
+    flex-grow: 2;
+    padding: 10px 10%;
+    background: #ff7dd8;
+    color: #efefef;
+    display: flex;
+    gap: 5px;
+
+}
+
+.formas_pag{
+    flex-grow: 2;
+    padding: 10px 10%;
+    background: #ff7dd8;
+    color: #efefef;
+    display: flex;
+
+}
+
+.formas_pag_img{
+
+    height: 70px;
+    width:200px;
+
+}
+
+.certi_seguranca{
+    flex-grow: 2;
+    padding: 10px 10%;
+    background: #ff7dd8;
+    color: #efefef;
+    display: flex;
+
+}
+.certi_seguranca_img{
+    height: 50px;
+    width:160px;
+
+}

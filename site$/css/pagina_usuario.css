@@ -1,0 +1,30 @@
+.dropbtn-pu {
+    background-color: #ff7dd8;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+.dropbtn-pu:hover, .dropbtn-pu:focus {
+    background-color: #fa60cc;
+  }
+  
+.dropdown-pu {
+    position: relative;
+    display: inline-block;
+  }
+  
+.dropdown-content-pu {
+    display: none;
+    position: relative;
+    background-color: transparent;
+    min-width: 160px;
+    overflow: auto;
+    z-index: 1;
+  }
+  
+.show {
+    display: block;
+}
