@@ -2,9 +2,12 @@
 
     require "conexao.php";
 
-    $id = $_POST["idResposta"];
+    $idResposta = $_GET["idResposta"];
+    $idProduto = $_GET["idProduto"];
 
-    $comando = "delete * where Resposta = $id;";
+    $comando = "delete from Resposta where idResposta = $idResposta;";
     mysqli_query($conexao, $comando);
+
+    header('Location: '."../html/descricao_produto.php?id=$idProduto")
 
 ?>

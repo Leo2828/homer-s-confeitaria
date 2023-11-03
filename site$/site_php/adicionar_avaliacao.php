@@ -10,5 +10,4 @@
     mysqli_query($conexao, $comando);
     header('location: ' . "../html/descricao_produto.php?id=$idProduto");
     
-
 ?>

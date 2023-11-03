@@ -2,10 +2,13 @@
 
     require "conexao.php";
 
-    $id = $_POST["idAvaliacao"];
+    $idAvaliacao = $_GET["idAvaliacao"];
+    $idProduto = $_GET["idProduto"];
 
-    $comando = "delete from Avaliacao where idAvaliacao = $id;";
+    $comando = "delete from Resposta where idAvaliacao = $idAvaliacao;";
     mysqli_query($conexao, $comando);
-    header('Location: '."../html/index.php")
+    $comando = "delete from Avaliacao where idAvaliacao = $idAvaliacao;";
+    mysqli_query($conexao, $comando);
+    header('Location: '."../html/descricao_produto.php?id=$idProduto")
 
 ?>

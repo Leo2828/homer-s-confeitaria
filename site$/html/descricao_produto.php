@@ -16,7 +16,7 @@
             require "../site_php/conexao.php";
 
             $comando = "select * from Produto where idProduto=$idProduto";
-            $resultado = mysqli_query( $conexao, $comando);
+            $resultado = mysqli_query($conexao, $comando);
                 while($linha = mysqli_fetch_assoc($resultado)){
                     $comando2 = "select link from Imagem where idProduto=$idProduto";
                     $resultado2 = mysqli_query($conexao, $comando2);
@@ -54,13 +54,21 @@
 
                     if($linha["idProduto"] == $idProduto){
                         echo "<p>" . $linha["nomeUsuario"] . " Comentou: </p>";
-                        echo "<p>" . $linha["comentario"] . "</p>";
+                        echo "<p>" . $linha["comentario"] . "</p><br>";
                         $idAvaliacao = $linha["idAvaliacao"];
+                        if($linha["idUsuario"] == $idUsuario){
+                            echo "<a href='../site_php/deletar_avaliacao.php?idAvaliacao=$idAvaliacao&idProduto=$idProduto'>Apagar </a>";
+                            echo "<a href='#'>Editar</a><br><br>";
+                        }   
 
                         $comando2 = "select * from Resposta where idAvaliacao = $idAvaliacao";
                         $resultado2 = mysqli_query($conexao, $comando2);
                         while($linha2 = mysqli_fetch_assoc($resultado2)){
-                            echo "<p> Resposta:" . $linha2["resposta"] . "</p>";
+                            echo "<p>Resposta:" . $linha2["resposta"] . "</p>";
+                            if($linha2["idUsuario"] == $idUsuario){
+                                echo "<a href='../site_php/deletar_resposta.php?idResposta=" . $linha2["idResposta"] . "&idProduto=$idProduto'>Apagar </a>";
+                                echo "<a href='#'>Editar</a><br><br>";
+                            }                           
                         }
 
                         if(isset($_SESSION["usuario"])){
