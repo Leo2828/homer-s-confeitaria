@@ -1,5 +1,5 @@
 <?php
 
-    $conexao = mysqli_connect('localhost', 'root', 'Leoleo601@', 'homers_confeitaria');
+    $conexao = mysqli_connect('localhost', 'root', '', 'homers_confeitaria');
 
 ?>
