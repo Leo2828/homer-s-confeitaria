@@ -3,27 +3,96 @@
     padding:0;
     box-sizing: border-box;
 }
+body {
+    margin: 0;
+}
+.mySlides {
+    display: none
+}
 
-#sla{
-    justify-content: center; /*basico para alinhar conteúdo dentro da div*/
+img {
+    vertical-align: middle;
+}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+#conteudo-produto{
+    justify-content: space-around; /*basico para alinhar conteúdo dentro da div*/
     display: flex; /*basico para alinhar conteúdo dentro da div*/
     flex-wrap: wrap;
     margin-right: 10px; /*distancia de um conteúdo a outro*/
     margin-left: 10px; /*lembrar que é necessario também uma distancia do conteúdo a borda da div*/
-    gap: 10px;
+    margin-bottom: 60px;
+    align-items: flex-start;
+    gap: 200px;
 }
 
 .produto{
+    border: 1.5px solid #000000;
+    border-radius: 5%;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; /*basico para alinhar conteúdo dentro da div*/
+    display: flex; /*basico para alinhar conteúdo dentro da div*/
+    flex-direction: column; /*basico para alinhar conteúdo dentro da div*/  
+}
+
+.imgprod{
+    height: 300px;
+    width: 300px;
+    border-radius: 5%;
+}
+
+.info-produto{
     border: 1.5px solid #000000;
     display: flex;
     flex-wrap: wrap; 
     justify-content: center; /*basico para alinhar conteúdo dentro da div*/
     display: flex; /*basico para alinhar conteúdo dentro da div*/
-    flex-direction: column; /*basico para alinhar conteúdo dentro da div*/   
+    flex-direction: column; /*basico para alinhar conteúdo dentro da div*/  
+    height: 400px;
+    width: 300px;
+    margin-right: 300px;
 }
 
-.imgprod{
-    height: 200px;
-    width: 200px;
+.fonte-produto{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
+}
+
+#editar {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: lightblue;
+    margin-top: 20px;
 }
 
