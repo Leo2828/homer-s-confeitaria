@@ -15,7 +15,6 @@
 
 .produto{
     border: 1.5px solid #000000;
-    display: flex;
     flex-wrap: wrap; 
     justify-content: center; /*basico para alinhar conteúdo dentro da div*/
     display: flex; /*basico para alinhar conteúdo dentro da div*/
