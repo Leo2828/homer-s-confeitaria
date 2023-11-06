@@ -8,6 +8,7 @@
     <?php require "header.php"?>
 </head>
 <body>
+
     <div id="conteudo-produto">
 
         <?php
@@ -28,9 +29,12 @@
                     echo "<a class='prev' onclick='plusSlides(-1)'>❮</a>
                           <a class='next' onclick='plusSlides(1)'>❯</a>";
                     echo "</div>";
-                    echo "<div class='info-produto'><p class='fonte-produto'>" . $linha["nomeProd"] . "</p>";
-                    echo "<p class='fonte-produto'>" . $linha["descricaoProd"] . "</p>";
-                    echo "<p class='fonte-produto'>R$" . $linha["preco"] . "</p></div>";
+                    
+                    echo "<div class='info-produto'><div class='nomedesc'><p class='fonte-produto'><strong>" . $linha["nomeProd"] . "<strong></p>";
+                    echo "<p class='fonte-produto'>" . $linha["descricaoProd"] . "</p></div>";
+                    echo "<div class='preco'><p class='fonte-produto'>R$" . $linha["preco"] . "</p>";
+                    echo "<input type='submit' value='COMPRAR' class='btn' />";
+                    echo "</div></div>";
                 }
 
             //Verificação se algum usuário esta logado
@@ -45,6 +49,7 @@
         ?>
 
     </div>
+
     <div>
         <h1>Avaliações</h1>
         <?php if(isset($_SESSION["usuario"])){ ?>

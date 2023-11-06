@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro produto</title>
-    <link rel="stylesheet"  href="#" />
+    <link rel="stylesheet"  href="../css/cadastro_produto.css" />
     <?php
 
         require "../site_php/conexao.php";
@@ -18,15 +18,30 @@
     ?>
 </head>
 <body>
-    <h1>Cadastro de produto</h1>
-    <form action="../site_php/adicionar_produto.php" method="post" enctype="multipart/form-data">
+
+    <div class="page">
+    
+    <form action="../site_php/adicionar_produto.php" method="post" enctype="multipart/form-data" class="formLogin">
+
+        <h1>Cadastro de produto</h1>
+        <p>Digite oa dados do produto para o cadastro.</p>
+
         <input type="hidden" name="idUsuario" value="<?=$idUsuario?>" >
-        Nome do produto: <input type="text" name="nomeProd"><br><br>
-        Descrição: <input type="text" name="descricaoProd"><br><br>
-        Preço: <input type="text" name="preco"><br><br>
-        Imagem: <input type="file" name="arquivo[]" multiple="multiple"><br><br>
-        <button type="submit">Cadastrar</button>
+        
+        <label for="nomeProd">Nome</label>
+        <input type="text" name="nomeProd" placeholder="Digite o nome do produto">
+
+        <label for="descricaoProd">Descrição</label>
+        <input type="text" name="descricaoProd" placeholder="Digite a descrição do produto">
+
+        <label for="preco">Preço</label>
+        <input type="text" name="preco" placeholder="Digite o preço">
+
+        <label for="arquivo[]">Arquivo</label>
+        <input type="file" name="arquivo[]" multiple="multiple">
+        <input type="submit" value="Cadastrar" class="btn" />
     </form>
+    </div>
     <?php require "footer.php"?>
 </body>
 </html>
