@@ -13,6 +13,7 @@ create table if not exists `homers_confeitaria`.`Produto` (
     `nomeProd` varchar(50) not null,
     `descricaoProd` varchar(200) not null,
     `preco` decimal(8,2) not null,
+    `estoque` int(5) not null,
     `idUsuario` int not null,
     primary key(`idProduto`),
 	foreign key(`idUsuario`)
