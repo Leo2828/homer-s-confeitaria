@@ -37,7 +37,7 @@
         $resultado = mysqli_query($conexao, $comando);  
         while($linha = mysqli_fetch_assoc($resultado)){   
             echo "<a><img src='" . $linha["link"] . "' width='200' height='200'></a>";           
-            echo "<a href='../site_php/deletar_imagem.php?idImg=" . $linha["idImg"] . "'>remove</a><br><br>";
+            echo "<a href='../site_php/deletar_imagem.php?idImg=" . $linha["idImg"] . "&idProduto=$idProduto'>remover</a><br><br>";
         }
 
     ?>
