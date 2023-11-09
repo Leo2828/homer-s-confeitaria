@@ -21,7 +21,9 @@
     flex-direction: column; /*basico para alinhar conteúdo dentro da div*/   
     transform: 500ms linear;
     align-items: center;
+    margin: 5%;
 }
+
 .produto:hover {
     transform: scale(1.1);
 }

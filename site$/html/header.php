@@ -36,7 +36,7 @@
                                     echo "</div></div>";
                                     
                                     require "../site_php/conexao.php";
-                                    $comando = "select * from homers_confeitaria.usuario where nomeUsuario = '" . $_SESSION["usuario"] . "' and Chef = 1;";
+                                    $comando = "select * from Usuario where nomeUsuario = '" . $_SESSION["usuario"] . "' and Chef = 1;";
                                     $resultado = mysqli_query($conexao, $comando);
                                     if(mysqli_num_rows($resultado)!=0){
                                         echo '<a href="cadastro_produto.php"><img src="../img/produto.png" class="imgs_icon"></a>';

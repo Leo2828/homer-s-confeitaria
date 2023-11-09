@@ -96,7 +96,7 @@
 
                         //Verificação se o usuário logado pode responder
                         if(isset($_SESSION["usuario"])){
-                            $comandoR = "select * from produto where idProduto = $idProduto and idUsuario in (select idUsuario from usuario where nomeUsuario = '" . $_SESSION["usuario"] . "');";
+                            $comandoR = "select * from Produto where idProduto = $idProduto and idUsuario in (select idUsuario from Usuario where nomeUsuario = '" . $_SESSION["usuario"] . "');";
                             $resultadoR = mysqli_query($conexao, $comandoR);
 
                             if(mysqli_num_rows($resultadoR)!=0){ ?>
