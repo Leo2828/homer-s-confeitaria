@@ -49,7 +49,7 @@ create table if not exists `homers_confeitaria`.`Resposta` (
     foreign key(`idAvaliacao`)
     references `homers_confeitaria`.`Avaliacao` (`idAvaliacao`)
 );
-create table if not exists `homers_confeitaria`.`Compra` (
+create table if not exists `homers_confeitaria`.`Carrinho` (
     `idCompra` int not null auto_increment,
     `idProduto` int not null,
     `idUsuario` int not null,
