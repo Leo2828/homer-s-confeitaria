@@ -13,6 +13,8 @@
         require "deletar_produto.php";
     }
 
+    $comando = "delete from Carrinho where idUsuario=$idUsuario";
+    mysqli_query($conexao, $comando);
     $comando = "delete from Avaliacao where idUsuario=$idUsuario;"; 
     mysqli_query($conexao, $comando);
     $comando = "delete from Usuario where idUsuario = $idUsuario;";

@@ -16,6 +16,15 @@
             $idProduto = $_GET["id"];
             require "../site_php/conexao.php";
 
+            //Verificação se algum usuário esta logado
+            if(isset($_SESSION["usuario"])){
+                $comando = "select * from Usuario where nomeUsuario = '" . $_SESSION["usuario"] . "';";
+                $resultado = mysqli_query($conexao, $comando);
+                while($linha = mysqli_fetch_assoc($resultado)){
+                    $idUsuario = $linha["idUsuario"];
+                } 
+            }
+
             //Informações do produto
             $comando = "select * from Produto where idProduto=$idProduto";
             $resultado = mysqli_query($conexao, $comando);
@@ -34,17 +43,11 @@
                     echo "<p class='fonte-produto'>" . $linha["descricaoProd"] . "</p></div>";
                     echo "<div class='preco'><p class='fonte-produto'>R$" . $linha["preco"] . "</p>";
                     echo "<input type='submit' value='COMPRAR' class='btn' />";
+                    if(isset($_SESSION["usuario"])){
+                        echo "<a href='../site_php/adicionar_carrinho.php?idProduto=" . $idProduto . "&idUsuario=" . $idUsuario . "'type='button'><img src='../img/carrinho.png' height='45px' width='45px'></a>";
+                    };
                     echo "</div></div>";
                 }
-
-            //Verificação se algum usuário esta logado
-            if(isset($_SESSION["usuario"])){
-                $comando = "select * from Usuario where nomeUsuario = '" . $_SESSION["usuario"] . "';";
-                $resultado = mysqli_query($conexao, $comando);
-                while($linha = mysqli_fetch_assoc($resultado)){
-                    $idUsuario = $linha["idUsuario"];
-                } 
-            }
 
         ?>
 

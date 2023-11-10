@@ -10,6 +10,8 @@
         $idUsuario = $linha["idUsuario"];
     }
 
+    $comando = "delete from Carrinho where idProduto=$idProduto";
+    mysqli_query($conexao, $comando);
     $comando = "delete from Resposta where idUsuario=$idUsuario;"; 
     mysqli_query($conexao, $comando);
     $comando = "delete from Avaliacao where idProduto=$idProduto;"; 

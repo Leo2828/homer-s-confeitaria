@@ -19,7 +19,6 @@
                     </form>
                 </div>
                 <div>
-                    <a href="#"><img src="../img/carrinho.png" class="imgs_icon"></a>
                     <div class="dropdown">
                         <button class="dropbtn"><img src="../img/user.png" class="imgs_icon"></button>
                         <div class="dropdown-content">
@@ -29,12 +28,12 @@
                                     echo '<a href= "login_usuario.php">Logar</a>
                                     <a href= "cadastro_usuario.php">Cadastrar</a>';
                                 }else{
-                                    echo '<a href= "login_usuario.php">Logar</a>
-                                    <a href= "cadastro_usuario.php">Cadastrar</a>
+                                    echo '<a href= "cadastro_usuario.php">Cadastrar</a>
                                     <a href= "pagina_usuario.php">Configurações do perfil</a>
                                     <a href= "../site_php/deslogar.php">Deslogar</a>';
                                     echo "</div></div>";
                                     
+                                    echo '<a href="carrinho.php"><img src="../img/carrinho.png" class="imgs_icon"></a>';
                                     require "../site_php/conexao.php";
                                     $comando = "select * from Usuario where nomeUsuario = '" . $_SESSION["usuario"] . "' and Chef = 1;";
                                     $resultado = mysqli_query($conexao, $comando);
