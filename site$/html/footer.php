@@ -11,14 +11,14 @@
     <div class="footer">
     
         <div class="rede_social">
-            <a href="#"><img src="../img/facebook.png" class="imgs_icon"></a>
-            <a href="#"><img src="../img/whatsapp.png" class="imgs_icon"></a>
-            <a href="#"><img src="../img/instagram.png" class="imgs_icon"></a>
-            <a href="#"><img src="../img/twitter.png" class="imgs_icon"></a>
+            <a href="https://www.facebook.com/?locale=pt_BR"><img src="../img/facebook.png" class="imgs_icon"></a>
+            <a href="https://www.whatsapp.com/?lang=pt_BR"><img src="../img/whatsapp.png" class="imgs_icon"></a>
+            <a href="https://www.instagram.com/"><img src="../img/instagram.png" class="imgs_icon"></a>
+            <a href="https://twitter.com/"><img src="../img/twitter.png" class="imgs_icon"></a>
         </div>
 
         <div class="certi_seguranca">
-            <a href="#"><img src="../img/googlesec.png" class="certi_seguranca_img"></a>
+            <a><img src="../img/googlesec.png" class="certi_seguranca_img"></a>
         </div>
 
         <div class="formas_pag"> 

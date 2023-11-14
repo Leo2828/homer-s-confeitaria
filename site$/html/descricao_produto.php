@@ -42,10 +42,11 @@
                     echo "<div class='info-produto'><div class='nomedesc'><p class='fonte-produto'><strong>" . $linha["nomeProd"] . "<strong></p>";
                     echo "<p class='fonte-produto'>" . $linha["descricaoProd"] . "</p></div>";
                     echo "<div class='preco'><p class='fonte-produto'>R$" . $linha["preco"] . "</p>";
-                    echo "<input type='submit' value='COMPRAR' class='btn' />";
                     if(isset($_SESSION["usuario"])){
-                        echo "<a href='../site_php/adicionar_carrinho.php?idProduto=" . $idProduto . "&idUsuario=" . $idUsuario . "'type='button'><img src='../img/carrinho.png' height='45px' width='45px'></a>";
-                    };
+                        echo "<button type='submit' class='btn'><a href='../site_php/adicionar_carrinho.php?idProduto=" . $idProduto . "&idUsuario=" . $idUsuario . "'>Comprar</a></button>";
+                    }else{
+                        echo "<button type='submit' class='btn'><a href='login_usuario'>Comprar</a></button>";
+                    }
                     echo "</div></div>";
                 }
 
