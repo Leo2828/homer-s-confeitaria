@@ -70,13 +70,15 @@ img {
 }
 
 .info-produto{
-    border: 1.5px solid #000000;
+    border: 1.5px solid #a7a3a346;
     flex-wrap: wrap; 
-    display: flex; /*basico para alinhar conteúdo dentro da div*/
-    flex-direction: column; /*basico para alinhar conteúdo dentro da div*/  
+    display: flex; 
+    flex-direction: column;   
     height: 300px;
     width: 300px;
     gap: 50px;
+    text-align: center;
+    border-radius: 5%;
 }
 
 .fonte-produto{

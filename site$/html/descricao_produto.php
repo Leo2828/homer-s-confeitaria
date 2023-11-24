@@ -60,7 +60,7 @@
         <form action="../site_php/adicionar_avaliacao.php" method="POST">
             <input type="hidden" name="idProduto" value="<?=$idProduto?>">
             <input type="hidden" name="idUsuario" value="<?=$idUsuario?>">
-            Comentar<input type="text" name="comentario">
+            <input type="text" name="comentario">
             <button type="submit">Comentar</button><br><br>
         </form>
         <?php } ?>

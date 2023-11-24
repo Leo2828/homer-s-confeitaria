@@ -44,7 +44,7 @@
             echo '</div>';
             
         }else{
-            echo "<h1>Nenhum produto no carrinho </h1>";
+            echo "<h1>Nenhum produto no carrinho </h1></div>";
         }
 
     ?>

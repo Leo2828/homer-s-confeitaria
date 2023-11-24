@@ -19,10 +19,12 @@
     ?>
 </head>
 <body>
+ <div class="info">
     <h1><?=$_SESSION["usuario"]?></h1>
-    <p><?=$emailUsuario?></p><br>
+    <p><?=$emailUsuario?></p><br> 
     <a href="editar_usuario.php?idUsuario=<?=$idUsuario?>">Editar</a>
     <a href="../site_php/deletar_usuario.php?idUsuario=<?=$idUsuario?>">Deletar</a><br> 
+
     <div class="dropdown-pu">
         <button onclick="myFunction()" class="dropbtn-pu">Produtos</button>
         <div id="myDropdown" class="dropdown-content-pu">
@@ -31,14 +33,16 @@
                 $comando = "select * from Produto where idUsuario in (select idUsuario from Usuario where nomeUsuario = '" . $_SESSION["usuario"] . "');";
                 $resultado = mysqli_query($conexao, $comando);
                 while($linha = mysqli_fetch_assoc($resultado)){
-                    echo $linha["nomeProd"];
-                    echo "<br><a href='editar_produto.php?idProduto=" . $linha["idProduto"] . "'>Editar</a>";
-                    echo " <a href='../site_php/deletar_produto.php?idProduto=" . $linha["idProduto"] . "'>Apagar</a><br><br>";
+                    echo "<br>". $linha["nomeProd"];
+                    echo "<br><a href='editar_produto.php?idProduto=" . $linha["idProduto"] . "'>Editar</a><br>";
+                    echo "<a href='../site_php/deletar_produto.php?idProduto=" . $linha["idProduto"] . "'>Apagar</a><br><br>";
                 }   
             ?>
 
         </div>
     </div>
+  </div>
+
     <?php require "footer.php"?>
     <script>
 

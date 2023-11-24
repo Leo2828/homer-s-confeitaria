@@ -21,15 +21,27 @@
     ?>
 </head>
 <body>
-    <h1>Cadastro de produto</h1>
-    <form action="../site_php/atualizar_produto.php" method="post" enctype="multipart/form-data">
+    
+    <div class="page">
+
+    <form action="../site_php/atualizar_produto.php" method="post" enctype="multipart/form-data" class="formLogin">
+
+        <h1>Cadastro de produto</h1>
         <input type="hidden" name="idProduto" value="<?=$idProduto?>">
-        Nome do produto: <input type="text" name="nomeProd" value="<?=$nomeProd?>"><br><br>
-        Descrição: <input type="text" name="descricaoProd" value="<?=$descricaoProd?>"><br><br>
-        Preço: <input type="text" name="preco" value="<?=$preco?>"><br><br>
-        Imagem: <input type="file" name="arquivo[]" multiple="multiple"><br><br>
-        <button type="submit">Atualizar</button>
+        <label for="nome">Nome do produto</label>
+        <input type="text" name="nomeProd" value="<?=$nomeProd?>"><br><br>
+        <label for="Descri">Descrição</label>
+        <input type="text" name="descricaoProd" value="<?=$descricaoProd?>"><br><br>
+        <label for="preco">Preço</label>
+        <input type="text" name="preco" value="<?=$preco?>"><br><br>
+        <label for="Img">Imagem</label>
+        <input type="file" name="arquivo[]" multiple="multiple"><br><br>
+        
+        <input type="submit" value="Atualizar" class="btn" />
+
     </form>
+    </div>
+    <div class="imgProd">
     <h1>Imagens do produto</h1>
     <?php
 
@@ -41,6 +53,7 @@
         }
 
     ?>
+    </div>
     <?php require "footer.php"?>
 </body>
 </html>

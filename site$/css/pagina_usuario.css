@@ -5,6 +5,7 @@
     font-size: 16px;
     border: none;
     cursor: pointer;
+    border-radius: 5%;
   }
   
 .dropbtn-pu:hover, .dropbtn-pu:focus {
@@ -20,11 +21,26 @@
     display: none;
     position: relative;
     background-color: transparent;
-    min-width: 160px;
+    min-width: 60px;
     overflow: auto;
     z-index: 1;
+    text-align: center;
   }
   
 .show {
     display: block;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 7px;
+  padding: 50px;
+  box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
+  gap: 5px;
+  width: 450px;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
 }

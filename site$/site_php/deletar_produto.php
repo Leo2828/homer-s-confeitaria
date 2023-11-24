@@ -2,7 +2,9 @@
 
     require "conexao.php";
 
-    $idProduto = $_GET["idProduto"];
+    if(isset($_GET["idProduto"])){
+        $idProduto = $_GET["idProduto"];
+    }
     
     $comando = "select * from Produto where idProduto=$idProduto;"; 
     $resposta = mysqli_query($conexao, $comando);

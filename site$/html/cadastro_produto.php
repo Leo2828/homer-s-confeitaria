@@ -24,7 +24,7 @@
     <form action="../site_php/adicionar_produto.php" method="post" enctype="multipart/form-data" class="formLogin">
 
         <h1>Cadastro de produto</h1>
-        <p>Digite oa dados do produto para o cadastro.</p>
+        <p>Digite os dados do produto para o cadastro.</p>
 
         <input type="hidden" name="idUsuario" value="<?=$idUsuario?>" >
         
