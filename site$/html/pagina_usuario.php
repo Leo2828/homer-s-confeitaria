@@ -50,7 +50,7 @@ function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-// Close the dropdown if the user clicks outside of it
+// fecha o dropdown se o usuário clicar fora
 window.onclick = function(event) {
   if (!event.target.matches('.dropbtn-pu')) {
     var dropdowns = document.getElementsByClassName("dropdown-content-pu");
