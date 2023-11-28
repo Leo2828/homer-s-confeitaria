@@ -20,8 +20,12 @@
     $comando = "delete from Usuario where idUsuario = $idUsuario;";
     mysqli_query($conexao, $comando);
     session_start();
-    unset($_SESSION["usuario"]);
-    session_destroy();
-    header('Location: '."../html/index.php")
+    if($_SESSION["usuario"] == "admin"){
+        header('Location: '."../html/pagina_adm.php");
+    }else{
+        unset($_SESSION["usuario"]);
+        session_destroy();
+        header('Location: '."../html/index.php");
+    }   
 
 ?>

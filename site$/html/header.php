@@ -14,7 +14,7 @@
                 </div>
 
                 <div>
-                    <form action = "" method= "POST">
+                    <form action = "pesquisa.php" method= "POST">
                     <input type= "search" name= "pesquisa" id="barra_pesq" placeholder=Pesquisar>
                     </form>
                 </div>
@@ -28,9 +28,13 @@
                                     echo '<a href= "login_usuario.php">Logar</a>
                                     <a href= "cadastro_usuario.php">Cadastrar</a>';
                                 }else{
-                                    echo '<a href= "cadastro_usuario.php">Cadastrar</a>
-                                    <a href= "pagina_usuario.php">Configurações do perfil</a>
-                                    <a href= "../site_php/deslogar.php">Deslogar</a>';
+                                    echo '<a href= "cadastro_usuario.php">Cadastrar</a>';
+                                    if($_SESSION["usuario"] == "admin"){
+                                        echo '<a href= "pagina_adm.php">Configurações do administrador</a>';
+                                    }else{
+                                        echo '<a href= "pagina_usuario.php">Configurações do perfil</a>';
+                                    }        
+                                    echo '<a href= "../site_php/deslogar.php">Deslogar</a>';
                                     echo "</div></div>";
                                     
                                     echo '<a href="carrinho.php"><img src="../img/carrinho.png" class="imgs_icon"></a>';

@@ -13,7 +13,7 @@ body {
     padding: 50px;
     box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
     gap: 5px;
-    width: 450px;
+    width: auto;
     justify-content: center;
     margin: auto;
     align-items: center;
@@ -26,6 +26,7 @@ body {
     border-radius: 7px;
     border: 1px solid rgb(190, 186, 186);
     padding: 50px;
+    width: 500px;
     justify-content: center;
     gap: 1rem;
 }
@@ -37,11 +38,10 @@ body {
 
 }
 
-
-.preco{
- gap:20px;
+.quantidade{
+    width: 50px;
+    height: auto;
 }
-
 
 .btn {
     background-color: #ff7dd8;

@@ -5,9 +5,10 @@
     $nome = $_POST["nomeProd"];
     $descricao = $_POST["descricaoProd"];
     $preco = $_POST["preco"];
+    $estoque = $_POST["estoque"];
     $idUsuario = $_POST["idUsuario"];
 
-    $comando = "insert into Produto(nomeProd, descricaoProd, preco, idUsuario) values('$nome', '$descricao', '$preco', '$idUsuario');";
+    $comando = "insert into Produto(nomeProd, descricaoProd, preco, estoque, idUsuario) values('$nome', '$descricao', '$preco', '$estoque', '$idUsuario');";
     mysqli_query($conexao, $comando);
     $comando = "select idProduto from Produto";
     $resultado = mysqli_query($conexao, $comando);

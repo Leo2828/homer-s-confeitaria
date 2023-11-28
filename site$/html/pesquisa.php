@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width='device-width', initial-scale=1.0">
-    <title>HOME PAGE</title>
+    <title>Pesquisa</title>
     <link rel="stylesheet"  href="../css/index.css" />
     <?php require "header.php"?>
 
@@ -16,11 +16,13 @@
 
             <div id="sla">
                 <?php
-                
+
+                    $pesquisa = $_POST["pesquisa"];
+
                     require "../site_php/conexao.php";
                     $id = 0;
 
-                    $comando = "select p.*, i.* from Produto p inner join Imagem i on p.idProduto = i.idProduto;";
+                    $comando = "select p.*, i.* from Produto p inner join Imagem i on p.idProduto = i.idProduto where p.nomeProd like '%$pesquisa%';";
                     $resultado = mysqli_query($conexao, $comando);
                     while($linha = mysqli_fetch_assoc($resultado)){
                         if($id != $linha["idProduto"]){

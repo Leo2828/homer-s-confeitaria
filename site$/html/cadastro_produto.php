@@ -37,6 +37,9 @@
         <label for="preco">Preço</label>
         <input type="text" name="preco" placeholder="Digite o preço">
 
+        <label for="estoque">Estoque</label>
+        <input type="text" name="estoque" placeholder="Digite a quantidade em estoque">
+
         <label for="arquivo[]">Arquivo</label>
         <input type="file" name="arquivo[]" multiple="multiple">
         <input type="submit" value="Cadastrar" class="btn" />

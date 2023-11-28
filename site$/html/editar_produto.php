@@ -17,6 +17,7 @@
             $nomeProd = $linha["nomeProd"];
             $descricaoProd = $linha["descricaoProd"];
             $preco = $linha["preco"];
+            $estoque = $linha["estoque"];
         }
     ?>
 </head>
@@ -34,6 +35,8 @@
         <input type="text" name="descricaoProd" value="<?=$descricaoProd?>"><br><br>
         <label for="preco">Preço</label>
         <input type="text" name="preco" value="<?=$preco?>"><br><br>
+        <label for="estoque">Estoque</label>
+        <input type="text" name="estoque" value="<?=$estoque?>"><br><br>
         <label for="Img">Imagem</label>
         <input type="file" name="arquivo[]" multiple="multiple"><br><br>
         
@@ -41,7 +44,7 @@
 
     </form>
     </div>
-    <div class="imgProd">
+    
     <h1>Imagens do produto</h1>
     <?php
 
@@ -53,7 +56,7 @@
         }
 
     ?>
-    </div>
+    
     <?php require "footer.php"?>
 </body>
 </html>

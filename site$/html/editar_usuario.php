@@ -40,6 +40,15 @@
         <input type="submit" value="Atualizar" class="btn" />
     
     </form>
+
+    <?php if(isset($_GET["msg"])): 
+        $msg = $_GET["msg"];?>
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            <strong><?=$msg?></strong>
+        </div>
+    <?php endif ?>
+
 </div>
     <?php require "footer.php"?>
 </body>

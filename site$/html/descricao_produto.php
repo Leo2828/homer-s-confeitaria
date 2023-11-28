@@ -40,8 +40,9 @@
                     echo "</div>";
                     
                     echo "<div class='info-produto'><div class='nomedesc'><p class='fonte-produto'><strong>" . $linha["nomeProd"] . "<strong></p>";
-                    echo "<p class='fonte-produto'>" . $linha["descricaoProd"] . "</p></div>";
-                    echo "<div class='preco'><p class='fonte-produto'>R$" . $linha["preco"] . "</p>";
+                    echo "<p class='fonte-produto2'>" . $linha["descricaoProd"] . "</p></div>";
+                    echo "<div class='preco'><p class='fonte-produto2'>Quantidade disponivel: " . $linha["estoque"] . "</p><br>";
+                    echo "<p class='fonte-produto'>R$" . $linha["preco"] . "</p>";
                     if(isset($_SESSION["usuario"])){
                         echo "<button type='submit' class='btn'><a href='../site_php/adicionar_carrinho.php?idProduto=" . $idProduto . "&idUsuario=" . $idUsuario . "'>Comprar</a></button>";
                     }else{
@@ -55,44 +56,50 @@
     </div>
 
     <div>
-        <h1>Avaliações</h1>
-        <?php if(isset($_SESSION["usuario"])){ ?>
-        <form action="../site_php/adicionar_avaliacao.php" method="POST">
-            <input type="hidden" name="idProduto" value="<?=$idProduto?>">
-            <input type="hidden" name="idUsuario" value="<?=$idUsuario?>">
-            <input type="text" name="comentario">
-            <button type="submit">Comentar</button><br><br>
-        </form>
-        <?php } ?>
-        <div>
+        <div class=titulo_avaliacao>
+            <div>
+                <h1>Avaliações</h1>
+            </div>
+        </div>
+        <div class="comentar">
             <?php
-
+                $aux = 0;
                 //Informações de avaliações relacionadas ao produto
                 $comando = "select a.*, u.* from Avaliacao a inner join Usuario u on a.idUsuario = u.idUsuario;";
                 $resultado = mysqli_query($conexao, $comando);
                 while($linha = mysqli_fetch_assoc($resultado)){
-
                     if($linha["idProduto"] == $idProduto){
-                        echo "<p>" . $linha["nomeUsuario"] . " Comentou: </p>";
+                        echo "<div class='comentario'>";
+                        echo "Usuário <span>" . $linha["nomeUsuario"] . "</span> Comentou: ";
                         echo "<p>" . $linha["comentario"] . "</p>";
                         $idAvaliacao = $linha["idAvaliacao"];
-                        
+                        if(isset($_SESSION["usuario"])){
+                            if($_SESSION["usuario"]=="admin"){
+                                $aux = 1;
+                                echo "<a href='../site_php/deletar_avaliacao.php?idAvaliacao=$idAvaliacao&idProduto=$idProduto'>Apagar </a>"; 
+                            }
+                        }   
                         //Verificação se o usuário logado é quem avaliou
                         if(isset($_SESSION["usuario"])){
-                            if($linha["idUsuario"] == $idUsuario){
+                            if($linha["idUsuario"] == $idUsuario and $aux != 1){
                                 echo "<a href='../site_php/deletar_avaliacao.php?idAvaliacao=$idAvaliacao&idProduto=$idProduto'>Apagar </a>";
                                 echo "<a href='editar_avaliacao.php?idAvaliacao=$idAvaliacao&idProduto=$idProduto'>Editar</a><br><br>";
                             }  
                         }
+                        echo "</div>";
 
                         //Informações de respostas relacionadas à avaliação
                         $comando2 = "select * from Resposta where idAvaliacao = $idAvaliacao";
                         $resultado2 = mysqli_query($conexao, $comando2);
                         while($linha2 = mysqli_fetch_assoc($resultado2)){
-                            echo "<p>Resposta:<br>" . $linha2["resposta"] . "</p>";
-
+                            echo "<p>Resposta do chef :<br>" . $linha2["resposta"] . "</p>";
+                            if(isset($_SESSION["usuario"])){
+                                if($_SESSION["usuario"]=="admin"){
+                                    echo "<a href='../site_php/deletar_avaliacao.php?idAvaliacao=$idAvaliacao&idProduto=$idProduto'>Apagar </a>"; 
+                                }
+                            }  
                             //Verificação se o usuário logado é quem respondeu
-                            if($linha2["idUsuario"] == $idUsuario){
+                            if($linha2["idUsuario"] == $idUsuario and $aux != 1){
                                 echo "<a href='../site_php/deletar_resposta.php?idResposta=" . $linha2["idResposta"] . "&idProduto=$idProduto'>Apagar </a>";
                                 echo "<a href='editar_resposta.php?idResposta=" . $linha2["idResposta"] . "&idProduto=$idProduto'>Editar</a><br><br>";
                             }                           
@@ -103,21 +110,38 @@
                             $comandoR = "select * from Produto where idProduto = $idProduto and idUsuario in (select idUsuario from Usuario where nomeUsuario = '" . $_SESSION["usuario"] . "');";
                             $resultadoR = mysqli_query($conexao, $comandoR);
 
-                            if(mysqli_num_rows($resultadoR)!=0){ ?>
+                            $comandoA = 'select count(*) as "repetido" from resposta where idAvaliacao ='.$idAvaliacao.';';
+                            $resultadoA = mysqli_query($conexao, $comandoA);
+                            while($linhaA = mysqli_fetch_assoc($resultadoA)){
+                                $repetido = $linhaA["repetido"];
+                            }
+
+                            if(mysqli_num_rows($resultadoR)!=0 and $repetido != 1){ ?>
                                 <form action="../site_php/adicionar_resposta.php" method="POST">
                                 <input type="hidden" name="idProduto" value="<?=$idProduto?>">
                                 <input type="hidden" name="idAvaliacao" value="<?=$idAvaliacao?>">
                                 <input type="hidden" name="idUsuario" value="<?=$idUsuario?>">
-                                Responder<input type="text" name="resposta">
+                                Responder <input type="text" name= "resposta" id="barra_pesq_avali">
                                 <button type="submit">Responder</button>
                                 </form><br>
-                            <?php }
+                                
+                            <?php  }
                         }
                     }
                 }
             ?>
-        </div>
+                <?php if(isset($_SESSION["usuario"])){ ?>
+                <form action="../site_php/adicionar_avaliacao.php" method="POST">
+                    <input type="hidden" name="idProduto" value="<?=$idProduto?>">
+                    <input type="hidden" name="idUsuario" value="<?=$idUsuario?>">
+                    <br><br>
+                    Comentar <input type="text" name= "comentario" id="barra_pesq_avali">
+                    <button type="submit">Comentar</button><br><br>
+                </form>
+            </div>
+        <?php } ?>
     </div>
+            
     <?php require "footer.php"?> 
     <script>
         let slideIndex = 1;

@@ -7,41 +7,48 @@
     <title>Pagina usuario</title>
     <link rel="stylesheet"  href="../css/pagina_usuario.css" />
     <?php require "header.php"?>
-    <?php
-
-        require "../site_php/conexao.php";
-        $comando = "select * from Usuario where nomeUsuario = '" . $_SESSION["usuario"] . "';";
-        $resultado = mysqli_query($conexao, $comando);
-        while($linha = mysqli_fetch_assoc($resultado)){
-            $emailUsuario = $linha["emailUsuario"];
-            $idUsuario = $linha["idUsuario"];
-        }          
-    ?>
 </head>
 <body>
- <div class="info">
-    <h1><?=$_SESSION["usuario"]?></h1>
-    <p><?=$emailUsuario?></p><br> 
-    <a href="editar_usuario.php?idUsuario=<?=$idUsuario?>">Editar</a>
-    <a href="../site_php/deletar_usuario.php?idUsuario=<?=$idUsuario?>">Deletar</a><br> 
+<?php
+
+    require "../site_php/conexao.php";
+    $comando = "select * from Usuario where idUsuario > 1";
+    $resultado = mysqli_query($conexao, $comando);
+    if(mysqli_num_rows($resultado)==0){
+        echo "<h1>Não há usuários</h1>";
+    }else{
+        while($linha = mysqli_fetch_assoc($resultado)):
+            $nomeUsuario = $linha["nomeUsuario"];
+            $emailUsuario = $linha["emailUsuario"];
+            $idUsuario = $linha["idUsuario"];?>
+            <div class="info">
+            <h1><?=$nomeUsuario?></h1>
+            <p><?=$emailUsuario?></p><br> 
+            <a href="../site_php/deletar_usuario.php?idUsuario=<?=$idUsuario?>">Deletar</a><br> 
+
+            </div>
+    
+<?php endwhile;} ?>
 
     <div class="dropdown-pu">
         <button onclick="myFunction()" class="dropbtn-pu">Produtos</button>
         <div id="myDropdown" class="dropdown-content-pu">
 
-            <?php
-                $comando = "select * from Produto where idUsuario in (select idUsuario from Usuario where nomeUsuario = '" . $_SESSION["usuario"] . "');";
-                $resultado = mysqli_query($conexao, $comando);
+        <?php
+            $comando = "select * from Produto;";
+            $resultado = mysqli_query($conexao, $comando);
+            if(mysqli_num_rows($resultado)==0){
+                echo "<h1>Não há produtos</h1>";
+            }else{
                 while($linha = mysqli_fetch_assoc($resultado)){
                     echo "<br>". $linha["nomeProd"];
-                    echo "<br><a href='editar_produto.php?idProduto=" . $linha["idProduto"] . "'>Editar</a><br>";
-                    echo "<a href='../site_php/deletar_produto.php?idProduto=" . $linha["idProduto"] . "'>Apagar</a><br><br>";
-                }   
-            ?>
+                    echo "<br><a href='../site_php/deletar_produto.php?idProduto=" . $linha["idProduto"] . "'>Apagar</a><br><br>";
+                }
+            } 
+        ?>
 
         </div>
     </div>
-  </div>
 
     <?php require "footer.php"?>
     <script>

@@ -6,8 +6,9 @@
     $nome = $_POST["nomeProd"];
     $descricao = $_POST["descricaoProd"];
     $preco = $_POST["preco"];
+    $estoque = $_POST["estoque"];
     
-    $comando = "update Produto set nomeProd='$nome', descricaoProd='$descricao', preco='$preco' where idProduto=$idProduto;";
+    $comando = "update Produto set nomeProd='$nome', descricaoProd='$descricao', preco='$preco', estoque='$estoque' where idProduto=$idProduto;";
     mysqli_query($conexao, $comando);
 
     for($i=0;$i<count($_FILES['arquivo']['name']);$i++){ 

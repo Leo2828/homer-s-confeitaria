@@ -15,6 +15,8 @@
             mysqli_query($conexao, $comando);
         header('Location: '."../html/login_usuario.php");
     }else{
-        header('Location: '."../html/cadastro_usuario.php");
+        $msg = "Nome já existente";
+        header('Location: '."../html/cadastro_usuario.php?msg='$msg'");
     }
+    
 ?>

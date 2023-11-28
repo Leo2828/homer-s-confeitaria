@@ -32,9 +32,9 @@
             while($linha = mysqli_fetch_assoc($resultado)){
                 if($id != $linha["idProduto"]){
                     echo '<div class = "produto"><a href="descricao_produto.php?id=' . $linha["idProduto"] . '"><div class= "img"><img src="' . $linha["link"] . '" alt="imagem" class= "imgprod" height="50px" width="50px"></div></a>';
-                    echo '<div class="nomed">'.$linha["nomeProd"].'<br>';
-                    echo  $linha["descricaoProd"].'</div>';
-                    echo '<div class="preco">'.$linha["preco"].'</div>';
+                    echo '<div>'.$linha["nomeProd"].'</div><br>';
+                    echo '<div>R$'.$linha["preco"].'</div>';
+                    echo 'Quantidade:<div class="quantidade"><input class="quantidade" type="number" value="1" max="' . $linha["estoque"] . '"></div>';
                     echo "<a href='../site_php/deletar_carrinho.php?idProduto=" . $linha["idProduto"] . "&idUsuario=" . $linha["idUsuario"] . "'>Deletar</a><br></div>";
                   
                 }

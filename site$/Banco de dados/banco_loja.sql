@@ -13,8 +13,8 @@ create table if not exists `homers_confeitaria`.`Produto` (
     `nomeProd` varchar(50) not null,
     `descricaoProd` varchar(200) not null,
     `preco` decimal(8,2) not null,
-    `idUsuario` int not null,
     `estoque` int not null,
+    `idUsuario` int not null,
     primary key(`idProduto`),
 	foreign key(`idUsuario`)
 	references `homers_confeitaria`.`Usuario` (`idUsuario`)
@@ -61,14 +61,13 @@ create table if not exists `homers_confeitaria`.`Carrinho` (
     references `homers_confeitaria`.`Usuario` (`idUsuario`)
 );
  
-insert into Usuario  (`nomeUsuario`,`senhaUsuario`,`emailUsuario`,`chef`) values ('Admin','12345678910','admin1@gmail.com','1');
+insert into Usuario  (`nomeUsuario`,`senhaUsuario`,`emailUsuario`,`chef`) values ('Admin','123','admin1@gmail.com', '1');
 
-
-insert into Produto(`nomeProd`,`descricaoProd`,`preco`, `idUsuario`)  values ('Bolo de Morango', 'Bolo de Leite Ninho e Morango', '23.99', '1');
-insert into Produto(`nomeProd`,`descricaoProd`,`preco`, `idUsuario`)  values ('Croissant', 'Croissant doce', '6.99', '1');
-insert into Produto(`nomeProd`,`descricaoProd`,`preco`, `idUsuario`)  values ('Cupcake', 'Cupcake de chocolate e âvela', '5.50', '1');
-insert into Produto(`nomeProd`,`descricaoProd`,`preco`, `idUsuario`)  values ('Rosquinhas', 'Rosquinha com cobertura de morango e recheio de creme', '7.50', '1');
-insert into Produto(`nomeProd`,`descricaoProd`,`preco`, `idUsuario`)  values ('Carolina', 'Carolina de nutela', '1.50', '1');
-insert into Produto(`nomeProd`,`descricaoProd`,`preco`, `idUsuario`)  values ('Torta de Morango', 'Torta de Morango e Creme', '8.50', '1');
-insert into Produto(`nomeProd`,`descricaoProd`,`preco`, `idUsuario`)  values ('Torta de Limão', 'Torta de limão e creme', '8.50', '1');
-insert into Produto(`nomeProd`,`descricaoProd`,`preco`, `idUsuario`)  values ('Bolo de Cenoura', 'Bolo de Cenoura com Cobertura de Chocolate', '23.99', '1');
+insert into Produto(`nomeProd`,`descricaoProd`,`preco`, `estoque`, `idUsuario`)  values ('Bolo de Morango', 'Bolo de Leite Ninho e Morango', '23.99', '500', '1');
+insert into Produto(`nomeProd`,`descricaoProd`,`preco`, `estoque`, `idUsuario`)  values ('Croissant', 'Croissant doce', '6.99', '400', '1');
+insert into Produto(`nomeProd`,`descricaoProd`,`preco`, `estoque`, `idUsuario`)  values ('Cupcake', 'Cupcake de chocolate e âvela', '5.50', '300', '1');
+insert into Produto(`nomeProd`,`descricaoProd`,`preco`, `estoque`, `idUsuario`)  values ('Rosquinhas', 'Rosquinha com cobertura de morango e recheio de creme', '7.50', '200', '1');
+insert into Produto(`nomeProd`,`descricaoProd`,`preco`, `estoque`, `idUsuario`)  values ('Carolina', 'Carolina de nutela', '1.50', '100', '1');
+insert into Produto(`nomeProd`,`descricaoProd`,`preco`, `estoque`, `idUsuario`)  values ('Torta de Morango', 'Torta de Morango e Creme', '8.50', '50', '1');
+insert into Produto(`nomeProd`,`descricaoProd`,`preco`, `estoque`, `idUsuario`)  values ('Torta de Limão', 'Torta de limão e creme', '8.50', '650', '1');
+insert into Produto(`nomeProd`,`descricaoProd`,`preco`, `estoque`, `idUsuario`)  values ('Bolo de Cenoura', 'Bolo de Cenoura com Cobertura de Chocolate', '23.99', '434', '1');
